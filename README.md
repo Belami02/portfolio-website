@@ -81,6 +81,4 @@ To customize the website content:
 - **GitHub Pages** - Free hosting service
 - **GitHub Actions** - CI/CD automation
 
-## License
 
-MIT
