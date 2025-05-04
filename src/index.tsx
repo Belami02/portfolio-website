@@ -49,7 +49,7 @@ function generateHtml(data: PageData): string {
   <title>${data.name}</title>
   <link rel="stylesheet" href="/stylesheets/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.6.4/email.min.js"></script>
   <script src="/javascripts/main.js" defer></script>
   <style>
     /* Additional inline styles to ensure images work well */

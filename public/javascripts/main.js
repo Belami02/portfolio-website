@@ -13,9 +13,11 @@ function initEmailJS() {
   
   try {
     // Initialize with your public key
-    emailjs.init({
-      publicKey: "n0IOi5QvaLBuY9ehz",
-    });
+    (function() {
+      emailjs.init({
+        publicKey: "n0IOi5QvaLBuY9ehz",
+      });
+    })();
     
     emailjsInitialized = true;
     console.log("EmailJS initialized successfully");
@@ -111,8 +113,8 @@ function submitForm(event) {
   
   // Prepare parameters for template
   const templateParams = {
-    name: document.getElementById('name').value,
-    email: document.getElementById('email').value,
+    from_name: document.getElementById('name').value,
+    email_id: document.getElementById('email').value,
     subject: document.getElementById('subject').value,
     message: document.getElementById('message').value
   };
@@ -123,7 +125,7 @@ function submitForm(event) {
     submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
     formStatus.textContent = 'Request timed out. Please try again later.';
     formStatus.className = 'form-status error';
-  }, 10000); // 10 second timeout
+  }, 15000); // 15 second timeout
   
   // Send email using EmailJS with your provided Service ID and Template ID
   emailjs.send('service_8lomhfn', 'template_fyodjdo', templateParams)
@@ -144,7 +146,7 @@ function submitForm(event) {
     })
     .catch(function(error) {
       clearTimeout(timeoutId);
-      console.log('FAILED...', error);
+      console.error('FAILED...', error);
       
       // Show error message
       formStatus.textContent = 'Sorry, there was an error sending your message. Please try again later.';
