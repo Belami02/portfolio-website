@@ -73,6 +73,44 @@ function generateHtml(data: PageData): string {
       border: 3px solid #fff;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
+    /* Contact form improvements */
+    .contact-container {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+    }
+    .contact-form {
+      flex: 2;
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    .contact-info-sidebar {
+      flex: 1;
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    .contact-method {
+      margin-bottom: 25px;
+    }
+    /* Form status styling */
+    .form-status {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 5px;
+      font-weight: 500;
+    }
+    .form-status.success {
+      background-color: #e7f7ed;
+      color: #28a745;
+    }
+    .form-status.error {
+      background-color: #f8d7da;
+      color: #dc3545;
+    }
     /* Ensure mobile responsiveness */
     @media (max-width: 768px) {
       .contact-container {
@@ -246,16 +284,6 @@ function generateHtml(data: PageData): string {
               </form>
               
               <div class="contact-info-sidebar">
-                <div class="contact-method">
-                  <div class="icon-container">
-                    <i class="fas fa-map-marker-alt"></i>
-                  </div>
-                  <div class="contact-details">
-                    <h3>Location</h3>
-                    <p>Carnegie Mellon University<br>Pittsburgh, PA</p>
-                  </div>
-                </div>
-                
                 <div class="contact-method">
                   <div class="icon-container">
                     <i class="fas fa-globe"></i>
