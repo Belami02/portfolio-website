@@ -1,74 +1,86 @@
-# Portfolio Website
+# Personal Portfolio Website
 
-A professional portfolio website built with Express.js and TypeScript.
-
-## Setup and Run
-
-1. Install dependencies:
-   ```
-   npm install
-   ```
-
-2. Build the project:
-   ```
-   npm run build
-   ```
-
-3. Start the server:
-   ```
-   npm start
-   ```
-
-4. Visit `http://localhost:3000` in your browser
-
-## EmailJS Setup
-
-This portfolio uses EmailJS to handle contact form submissions. To configure EmailJS:
-
-1. Create an account on [EmailJS](https://www.emailjs.com/) (free tier allows 200 emails/month)
-
-2. Create an Email Service:
-   - Click "Add New Service" and connect to your email provider (Gmail, Outlook, etc.)
-   - Note the Service ID for later use
-
-3. Create an Email Template:
-   - Go to "Email Templates" and click "Create New Template"
-   - Design your email template using these dynamic variables in your content:
-     - {{name}} - Sender's name
-     - {{email}} - Sender's email
-     - {{subject}} - Email subject
-     - {{message}} - Email message
-   - Note the Template ID for later use
-
-4. Update the JavaScript configuration:
-   - Open `public/javascripts/main.js`
-   - Replace these values with your actual EmailJS credentials:
-     ```javascript
-     // Replace with your actual EmailJS user ID
-     emailjs.init("user_xxxxxxxxxxxxxxxxxxx");
-     
-     // In the submitForm function:
-     emailjs.send('service_xxxxxxxxx', 'template_xxxxxxxxx', templateParams)
-     ```
-   - Your User ID can be found in Account > API Keys
-
-5. Test the form to ensure it's working correctly
-
-## Customization
-
-- Edit the data in `src/index.tsx` to customize your personal information
-- Replace `public/images/profile.jpg` with your own photo
-- Add your resume as `public/resume.pdf`
-- Modify styles in `public/stylesheets/styles.css`
+A modern, responsive portfolio website built with Express.js, TypeScript, and designed for deployment on GitHub Pages.
 
 ## Features
 
-- Responsive design for mobile and desktop
-- Tabbed interface for easy navigation
+- Responsive design that works on desktop and mobile
+- Interactive tab navigation system
 - Contact form with EmailJS integration
-- Skills showcase with icons
-- Project portfolio with images and descriptions
+- Dynamic project showcase
+- GitHub Pages deployment support
+
+## Setup and Local Development
+
+### Prerequisites
+
+- Node.js (v14+)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Belami02/portfolio-website.git
+   cd portfolio-website
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open your browser and visit `http://localhost:3000`
+
+## Project Structure
+
+- `public/` - Static assets (images, CSS, client-side JavaScript)
+- `src/` - Server-side TypeScript code
+- `scripts/` - Build and deployment scripts
+
+## Deployment to GitHub Pages
+
+### Automatic Deployment (GitHub Actions)
+
+This project includes a GitHub Actions workflow that automatically deploys your site to GitHub Pages when you push to the main branch.
+
+### Manual Deployment
+
+1. Build the static site:
+   ```bash
+   npm run build:static
+   ```
+
+2. Deploy to GitHub Pages:
+   ```bash
+   npm run deploy
+   ```
+
+## Customization
+
+To customize the website content:
+
+1. Edit the `pageData` object in `src/index.tsx` to update:
+   - Personal information
+   - Skills
+   - Projects
+   - Contact details
+
+2. Modify CSS in `public/stylesheets/styles.css` to change the design
+
+## Technologies Used
+
+- **TypeScript** - Type-safe JavaScript
+- **Express.js** - Web server framework
+- **EmailJS** - Email service for the contact form
+- **GitHub Pages** - Free hosting service
+- **GitHub Actions** - CI/CD automation
 
 ## License
 
-MIT License
+MIT

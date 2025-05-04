@@ -447,6 +447,9 @@ Outside of academics, I keep things balanced. I'm a huge football fan, always do
 });
 
 // Start the server
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
+
+// Export the server so it can be closed by the static generator
+module.exports = server;
