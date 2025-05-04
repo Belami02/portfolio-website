@@ -359,7 +359,7 @@ app.get('/', (req: Request, res: Response) => {
 
 I grew up in Rwanda, where I first fell in love with math through competitions like PAMO, IMO, Euclid Contest, and Wits. That passion opened doors—eventually earning me a full scholarship to study at CMU, thanks to the Qatar Foundation.
 
-Outside of academics, I keep things balanced. I'm a huge football fan, always down to catch a match with friends, and I never underestimate the power of a good nap. I enjoy reading, watching movies, and trying new experiences whenever I can. These moments help me stay grounded while navigating the intense but exciting world of tech and finance.`,
+Outside of academics, I keep things balanced. I'm a huge football fan, always down to catch a match with friends, and I never underestimate the power of a good nap. I enjoy reading, watching movies, and trying new experiences whenever I can. These moments help me stay grounded while navigating the intense but exciting world of math, tech and finance.`,
 
     skills: [
       { name: 'Python', icon: 'fab fa-python' },
