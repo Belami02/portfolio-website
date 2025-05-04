@@ -4,10 +4,46 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bel Ami Gisage Warakoze</title>
-  <link rel="stylesheet" href="/stylesheets/styles.css">
+  <link rel="stylesheet" href="stylesheets/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="https://cdn.emailjs.com/sdk/2.6.4/email.min.js"></script>
-  <script src="/javascripts/main.js" defer></script>
+  <script src="javascripts/main.js" defer></script>
+  <style>
+    /* Additional inline styles to ensure images work well */
+    .project-image-container {
+      max-width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .project-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    /* Ensure mobile responsiveness */
+    @media (max-width: 768px) {
+      .contact-container {
+        flex-direction: column;
+      }
+      .contact-form, .contact-info-sidebar {
+        width: 100%;
+      }
+      .project-image {
+        max-height: 250px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="wrapper">
@@ -30,7 +66,7 @@
 
         <div class="tab-content tab-home active">
           <div class="home-banner">
-            <img src="/images/profile.jpg" alt="Bel Ami Gisage Warakoze" class="profile-image">
+            <img src="images/profile.jpg" alt="Bel Ami Gisage Warakoze" class="profile-image">
             <h1>Bel Ami Gisage Warakoze</h1>
             <p class="tagline">Computer Science Student at Carnegie Mellon University</p>
             <div class="social-icons">
@@ -77,7 +113,7 @@
                 <h3>(I) Scheduling System</h3>
                 
                 <div class="project-image-container">
-                    <img src="/images/scheduling.png" alt="Scheduling System" class="project-image">
+                    <img src="images/scheduling.png" alt="Scheduling System" class="project-image">
                   </div>
                 
                 <p class="project-description">A comprehensive scheduling system API built with FastAPI and MongoDB that allows users to manage bookings, courses, roles, tutor availabilities, and users. <i>(Note: This was a learning project to study modern API development techniques)</i></p>
@@ -106,7 +142,7 @@
                 <h3>(II) DevFolio</h3>
                 
                 <div class="project-image-container">
-                    <img src="/images/portfolio.png" alt="DevFolio" class="project-image">
+                    <img src="images/portfolio.png" alt="DevFolio" class="project-image">
                   </div>
                 
                 <p class="project-description">A highly customizable React-based portfolio theme specifically designed for software engineers and developers to showcase their projects and skills.</p>
@@ -135,7 +171,7 @@
                 <h3>(III) Reconnect</h3>
                 
                 <div class="project-image-container">
-                    <img src="/images/reconnect.png" alt="Reconnect" class="project-image">
+                    <img src="images/reconnect.png" alt="Reconnect" class="project-image">
                   </div>
                 
                 <p class="project-description">A digital platform built for CMUQ's Lifelines hackathon that connects people searching for missing persons, pets, and items through community collaboration.</p>
@@ -164,7 +200,7 @@
                 <h3>(IV) TriagerX</h3>
                 
                 <div class="project-image-container">
-                    <img src="/images/triagerx.png" alt="TriagerX" class="project-image">
+                    <img src="images/triagerx.png" alt="TriagerX" class="project-image">
                   </div>
                 
                 <p class="project-description">An AI-powered issue management system developed by the Eclipse Adoptium working group that won the IBM Center for Advanced Studies Project of the Year 2024 award. This system helps automate GitHub issue triaging by using a Slack chatbot and AI analysis for the AQA Test Tools. The system uses machine learning to look at issue content and history to suggest which team should handle it, making issue management much easier for large open-source projects.</p>
@@ -193,7 +229,7 @@
                 <h3>(V) Euro Prediction</h3>
                 
                 <div class="project-image-container">
-                    <img src="/images/europrediction.png" alt="Euro Prediction" class="project-image">
+                    <img src="images/europrediction.png" alt="Euro Prediction" class="project-image">
                   </div>
                 
                 <p class="project-description">A machine learning-based prediction system for European football championship matches that analyzes historical team performance, player statistics, and match conditions.</p>
@@ -222,7 +258,7 @@
                 <h3>(VI) Rubiks Cube Game</h3>
                 
                 <div class="project-image-container">
-                    <img src="/images/rubiks.png" alt="Rubiks Cube Game" class="project-image">
+                    <img src="images/rubiks.png" alt="Rubiks Cube Game" class="project-image">
                   </div>
                 
                 <p class="project-description">This is an arcade puzzle game, inspired by the Rubiks Cube, that uses isometric projection to display the cube both in 2D and 3D. This project had 2000+ lines of code.</p>
