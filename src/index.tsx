@@ -49,7 +49,7 @@ function generateHtml(data: PageData): string {
   <title>${data.name}</title>
   <link rel="stylesheet" href="/stylesheets/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.6.4/email.min.js"></script>
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script src="/javascripts/main.js" defer></script>
   <style>
     /* Additional inline styles to ensure images work well */
@@ -245,7 +245,7 @@ function generateHtml(data: PageData): string {
             <p class="contact-intro">Have a question or want to work together? Fill out the form below and I'll get back to you as soon as possible.</p>
             
             <div class="contact-container">
-              <form id="contact-form" class="contact-form" onsubmit="submitForm(event)">
+              <form id="contact-form" class="contact-form">
                 <div class="contact-form-header">
                   <h3>Send Me a Message</h3>
                   <p>I'll respond to your message as soon as possible</p>
@@ -255,13 +255,13 @@ function generateHtml(data: PageData): string {
                   <div class="form-group has-icon">
                     <label for="name">Full Name</label>
                     <i class="fas fa-user"></i>
-                    <input type="text" id="name" name="name" placeholder="Your full name" required>
+                    <input type="text" id="name" name="from_name" placeholder="Your full name" required>
                   </div>
                   
                   <div class="form-group has-icon">
                     <label for="email">Email Address</label>
                     <i class="fas fa-envelope"></i>
-                    <input type="email" id="email" name="email" placeholder="Your email address" required>
+                    <input type="email" id="email" name="email_id" placeholder="Your email address" required>
                   </div>
                 </div>
                 

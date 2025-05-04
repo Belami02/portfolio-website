@@ -1,36 +1,47 @@
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
   initTabFunctionality();
-  initEmailJS();
+  setupEmailJS();
 });
 
-// EmailJS initialization state
-let emailjsInitialized = false;
-
-// Initialize EmailJS
-function initEmailJS() {
-  if (emailjsInitialized) return;
+// Set up EmailJS
+function setupEmailJS() {
+  // Initialize EmailJS with public key
+  emailjs.init("n0IOi5QvaLBuY9ehz");
   
-  try {
-    // Initialize with your public key
-    (function() {
-      emailjs.init({
-        publicKey: "n0IOi5QvaLBuY9ehz",
-      });
-    })();
-    
-    emailjsInitialized = true;
-    console.log("EmailJS initialized successfully");
-    
-    // Get the contact form and add event listener
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-      contactForm.addEventListener('submit', submitForm);
-    }
-  } catch (error) {
-    console.error("Failed to initialize EmailJS:", error);
-    // Try again in 2 seconds if it fails
-    setTimeout(initEmailJS, 2000);
+  // Add event listener to contact form
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Get form and status elements
+      const submitButton = document.getElementById('submit-button');
+      const formStatus = document.getElementById('form-status');
+      
+      // Show sending state
+      submitButton.disabled = true;
+      submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      formStatus.textContent = '';
+      formStatus.className = 'form-status';
+      
+      // Send email
+      emailjs.sendForm('service_8lomhfn', 'template_fyodjdo', this)
+        .then(function() {
+          console.log('Email sent successfully!');
+          formStatus.textContent = 'Your message has been sent successfully!';
+          formStatus.className = 'form-status success';
+          contactForm.reset();
+          submitButton.disabled = false;
+          submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+        }, function(error) {
+          console.error('EmailJS error:', error);
+          formStatus.textContent = 'Sorry, there was an error sending your message. Please try again later.';
+          formStatus.className = 'form-status error';
+          submitButton.disabled = false;
+          submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+        });
+    });
   }
 }
 
@@ -88,72 +99,4 @@ function initTabFunctionality() {
     // If no active tab is set, activate the first one
     tabButtons[0].click();
   }
-}
-
-// Contact form submission with EmailJS
-function submitForm(event) {
-  event.preventDefault();
-  
-  // Check if EmailJS is initialized
-  if (!emailjsInitialized) {
-    initEmailJS();
-    alert("Please try again in a moment, preparing the form...");
-    return;
-  }
-  
-  // Get form elements
-  const submitButton = document.getElementById('submit-button');
-  const formStatus = document.getElementById('form-status');
-  
-  // Show loading state
-  submitButton.disabled = true;
-  submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-  formStatus.textContent = '';
-  formStatus.className = 'form-status';
-  
-  // Prepare parameters for template
-  const templateParams = {
-    from_name: document.getElementById('name').value,
-    email_id: document.getElementById('email').value,
-    subject: document.getElementById('subject').value,
-    message: document.getElementById('message').value
-  };
-  
-  // Set a timeout to prevent infinite loading
-  const timeoutId = setTimeout(() => {
-    submitButton.disabled = false;
-    submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-    formStatus.textContent = 'Request timed out. Please try again later.';
-    formStatus.className = 'form-status error';
-  }, 15000); // 15 second timeout
-  
-  // Send email using EmailJS with your provided Service ID and Template ID
-  emailjs.send('service_8lomhfn', 'template_fyodjdo', templateParams)
-    .then(function(response) {
-      clearTimeout(timeoutId);
-      console.log('SUCCESS!', response.status, response.text);
-      
-      // Show success message
-      formStatus.textContent = 'Your message has been sent successfully!';
-      formStatus.className = 'form-status success';
-      
-      // Reset form
-      document.getElementById('contact-form').reset();
-      
-      // Restore button state
-      submitButton.disabled = false;
-      submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-    })
-    .catch(function(error) {
-      clearTimeout(timeoutId);
-      console.error('FAILED...', error);
-      
-      // Show error message
-      formStatus.textContent = 'Sorry, there was an error sending your message. Please try again later.';
-      formStatus.className = 'form-status error';
-      
-      // Restore button state
-      submitButton.disabled = false;
-      submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-    });
 } 
