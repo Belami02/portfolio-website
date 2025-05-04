@@ -4,15 +4,31 @@ document.addEventListener('DOMContentLoaded', function() {
   initEmailJS();
 });
 
+// EmailJS initialization state
+let emailjsInitialized = false;
+
 // Initialize EmailJS
 function initEmailJS() {
-  // Initialize with your public key
-  emailjs.init("n0IOi5QvaLBuY9ehz");
+  if (emailjsInitialized) return;
   
-  // Get the contact form and add event listener
-  const contactForm = document.getElementById('contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', submitForm);
+  try {
+    // Initialize with your public key
+    emailjs.init({
+      publicKey: "n0IOi5QvaLBuY9ehz",
+    });
+    
+    emailjsInitialized = true;
+    console.log("EmailJS initialized successfully");
+    
+    // Get the contact form and add event listener
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', submitForm);
+    }
+  } catch (error) {
+    console.error("Failed to initialize EmailJS:", error);
+    // Try again in 2 seconds if it fails
+    setTimeout(initEmailJS, 2000);
   }
 }
 
@@ -76,6 +92,13 @@ function initTabFunctionality() {
 function submitForm(event) {
   event.preventDefault();
   
+  // Check if EmailJS is initialized
+  if (!emailjsInitialized) {
+    initEmailJS();
+    alert("Please try again in a moment, preparing the form...");
+    return;
+  }
+  
   // Get form elements
   const submitButton = document.getElementById('submit-button');
   const formStatus = document.getElementById('form-status');
@@ -84,6 +107,7 @@ function submitForm(event) {
   submitButton.disabled = true;
   submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
   formStatus.textContent = '';
+  formStatus.className = 'form-status';
   
   // Prepare parameters for template
   const templateParams = {
@@ -93,9 +117,18 @@ function submitForm(event) {
     message: document.getElementById('message').value
   };
   
+  // Set a timeout to prevent infinite loading
+  const timeoutId = setTimeout(() => {
+    submitButton.disabled = false;
+    submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+    formStatus.textContent = 'Request timed out. Please try again later.';
+    formStatus.className = 'form-status error';
+  }, 10000); // 10 second timeout
+  
   // Send email using EmailJS with your provided Service ID and Template ID
   emailjs.send('service_8lomhfn', 'template_fyodjdo', templateParams)
     .then(function(response) {
+      clearTimeout(timeoutId);
       console.log('SUCCESS!', response.status, response.text);
       
       // Show success message
@@ -110,6 +143,7 @@ function submitForm(event) {
       submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
     })
     .catch(function(error) {
+      clearTimeout(timeoutId);
       console.log('FAILED...', error);
       
       // Show error message
