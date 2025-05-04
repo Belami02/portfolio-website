@@ -1,0 +1,10 @@
+RESUME PLACEHOLDER
+
+This is a placeholder file. Please replace this with your actual resume in PDF format.
+
+To do this:
+1. Create or export your resume as a PDF file
+2. Name it "resume.pdf"
+3. Upload it to the "public" folder of your portfolio website
+
+The "View My Resume" button on your portfolio will then link directly to your resume. 
