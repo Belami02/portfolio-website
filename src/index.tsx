@@ -51,10 +51,12 @@ function generateHtml(data: PageData): string {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- EmailJS SDK -->
-  <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.6.4/email.min.js"></script>
+  <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.11.0/email.min.js"></script>
   <script type="text/javascript">
     (function() {
+      // Initialize with a user ID
       emailjs.init("n0IOi5QvaLBuY9ehz");
+      console.log("EmailJS initialized v3.11.0");
     })();
   </script>
   

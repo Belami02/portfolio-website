@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EmailJS Test</title>
+  <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.6.4/email.min.js"></script>
+  <script type="text/javascript">
+    window.onload = function() {
+      document.getElementById('test-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        // Get form elements
+        const submitButton = document.getElementById('submit-button');
+        const statusDiv = document.getElementById('status');
+        
+        // Show sending state
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+        statusDiv.textContent = '';
+        statusDiv.className = '';
+        
+        // Collect form data
+        const formData = {
+          from_name: document.getElementById('name').value,
+          email_id: document.getElementById('email').value,
+          subject: "Test Email",
+          message: document.getElementById('message').value
+        };
+        
+        console.log('Sending with params:', formData);
+        
+        // Initialize EmailJS
+        emailjs.init("n0IOi5QvaLBuY9ehz");
+        
+        // Send the email
+        emailjs.send('service_8lomhfn', 'template_fyodjdo', formData)
+          .then(function(response) {
+            console.log('SUCCESS!', response);
+            statusDiv.textContent = 'Message sent successfully!';
+            statusDiv.className = 'success';
+            document.getElementById('test-form').reset();
+          })
+          .catch(function(error) {
+            console.error('FAILED...', error);
+            statusDiv.textContent = 'Error: ' + JSON.stringify(error);
+            statusDiv.className = 'error';
+          })
+          .finally(function() {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Send Test Email';
+          });
+      });
+    };
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:disabled {
+      background: #cccccc;
+    }
+    .success {
+      color: green;
+      padding: 10px;
+      background: #e7f7e7;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+    .error {
+      color: red;
+      padding: 10px;
+      background: #f7e7e7;
+      border-radius: 4px;
+      margin-top: 10px;
+      word-break: break-all;
+    }
+    .debug {
+      margin-top: 30px;
+      padding: 10px;
+      background: #f5f5f5;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>EmailJS Test Page</h1>
+  <p>This is a simple test page to diagnose EmailJS issues.</p>
+  
+  <form id="test-form">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="message">Message:</label>
+      <textarea id="message" rows="4" required></textarea>
+    </div>
+    
+    <button type="submit" id="submit-button">Send Test Email</button>
+  </form>
+  
+  <div id="status"></div>
+  
+  <div class="debug">
+    <h3>Debug Info:</h3>
+    <p>Service ID: service_8lomhfn</p>
+    <p>Template ID: template_fyodjdo</p>
+    <p>User ID: n0IOi5QvaLBuY9ehz</p>
+  </div>
+</body>
+</html> 

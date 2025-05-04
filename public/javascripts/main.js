@@ -1,5 +1,5 @@
 // Wait for DOM to be fully loaded
-console.log('main.js v1.1 loaded');
+console.log('main.js v1.2 loaded');
 document.addEventListener('DOMContentLoaded', function() {
   console.log('DOM fully loaded');
   initTabFunctionality();
@@ -29,22 +29,31 @@ function initContactForm() {
       from_name: document.getElementById('name').value,
       email_id: document.getElementById('email').value,
       subject: document.getElementById('subject').value,
-      message: document.getElementById('message').value
+      message: document.getElementById('message').value,
+      // Add a timestamp to help prevent caching issues
+      timestamp: new Date().toISOString()
     };
     
-    // Send email using EmailJS
+    console.log('Sending email with data:', JSON.stringify(formData));
+    
+    // Send email using EmailJS v3
     emailjs.send('service_8lomhfn', 'template_fyodjdo', formData)
       .then(function(response) {
+        console.log('Email sent successfully:', response);
         // Success - update UI
         formStatus.textContent = 'Your message has been sent successfully!';
         formStatus.className = 'form-status success';
         contactForm.reset();
       })
       .catch(function(error) {
-        // Error - update UI
-        formStatus.textContent = 'Sorry, there was an error sending your message. Please try again later.';
+        console.error('EmailJS error details:', error);
+        // Error - update UI with more specific error message if available
+        let errorMessage = 'Sorry, there was an error sending your message. Please try again later.';
+        if (error && error.text) {
+          errorMessage += ' Error: ' + error.text;
+        }
+        formStatus.textContent = errorMessage;
         formStatus.className = 'form-status error';
-        console.error('EmailJS error:', error);
       })
       .finally(function() {
         // Always restore button state

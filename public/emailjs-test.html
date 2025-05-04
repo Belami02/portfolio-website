@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmailJS Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:disabled {
+            background: #cccccc;
+        }
+        .status {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .console {
+            margin-top: 20px;
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>EmailJS Test Page</h1>
+    <p>This is a standalone test page to troubleshoot EmailJS integration.</p>
+    
+    <form id="test-form">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="from_name" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email_id" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        
+        <button type="submit" id="submit-btn">Send Message</button>
+    </form>
+    
+    <div id="status" class="status" style="display: none;"></div>
+    
+    <div class="console">
+        <h3>Debug Console</h3>
+        <div id="console-output"></div>
+    </div>
+    
+    <!-- EmailJS SDK v3 -->
+    <script src="https://cdn.emailjs.com/sdk/3.11.0/email.min.js"></script>
+    
+    <script>
+        // Log function for the debug console
+        function log(message, isError = false) {
+            const consoleOutput = document.getElementById('console-output');
+            const entry = document.createElement('div');
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            if (isError) {
+                entry.style.color = 'red';
+            }
+            consoleOutput.appendChild(entry);
+            console.log(message);
+        }
+        
+        // Initialize EmailJS
+        (function() {
+            try {
+                emailjs.init("n0IOi5QvaLBuY9ehz");
+                log("EmailJS SDK v3.11.0 initialized successfully");
+            } catch (error) {
+                log(`EmailJS initialization error: ${error.message}`, true);
+            }
+        })();
+        
+        // Form submission handler
+        document.getElementById('test-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-btn');
+            const statusDiv = document.getElementById('status');
+            
+            // Update UI for sending state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            statusDiv.style.display = 'none';
+            
+            // Collect form data
+            const formData = {
+                from_name: document.getElementById('name').value,
+                email_id: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            log(`Sending email with data: ${JSON.stringify(formData)}`);
+            
+            // Try different method - direct params instead of form
+            emailjs.send('service_8lomhfn', 'template_fyodjdo', formData)
+                .then(function(response) {
+                    log(`Email sent successfully! Response: ${JSON.stringify(response)}`);
+                    statusDiv.textContent = 'Message sent successfully!';
+                    statusDiv.className = 'status success';
+                    statusDiv.style.display = 'block';
+                    document.getElementById('test-form').reset();
+                })
+                .catch(function(error) {
+                    log(`Email sending failed: ${JSON.stringify(error)}`, true);
+                    statusDiv.textContent = `Error sending message: ${error.text || 'Unknown error'}`;
+                    statusDiv.className = 'status error';
+                    statusDiv.style.display = 'block';
+                })
+                .finally(function() {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                });
+        });
+    </script>
+</body>
+</html> 
