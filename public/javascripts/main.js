@@ -1,47 +1,60 @@
 // Wait for DOM to be fully loaded
+console.log('main.js v1.1 loaded');
 document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM fully loaded');
   initTabFunctionality();
   setupEmailJS();
 });
 
 // Set up EmailJS
 function setupEmailJS() {
-  // Initialize EmailJS with public key
-  emailjs.init("n0IOi5QvaLBuY9ehz");
-  
-  // Add event listener to contact form
-  const contactForm = document.getElementById('contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function(event) {
-      event.preventDefault();
-      
-      // Get form and status elements
-      const submitButton = document.getElementById('submit-button');
-      const formStatus = document.getElementById('form-status');
-      
-      // Show sending state
-      submitButton.disabled = true;
-      submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-      formStatus.textContent = '';
-      formStatus.className = 'form-status';
-      
-      // Send email
-      emailjs.sendForm('service_8lomhfn', 'template_fyodjdo', this)
-        .then(function() {
-          console.log('Email sent successfully!');
-          formStatus.textContent = 'Your message has been sent successfully!';
-          formStatus.className = 'form-status success';
-          contactForm.reset();
-          submitButton.disabled = false;
-          submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-        }, function(error) {
-          console.error('EmailJS error:', error);
-          formStatus.textContent = 'Sorry, there was an error sending your message. Please try again later.';
-          formStatus.className = 'form-status error';
-          submitButton.disabled = false;
-          submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-        });
-    });
+  console.log('Setting up EmailJS');
+  try {
+    // Initialize EmailJS with public key
+    emailjs.init("n0IOi5QvaLBuY9ehz");
+    console.log('EmailJS initialized successfully');
+    
+    // Add event listener to contact form
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      console.log('Contact form found, adding event listener');
+      contactForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        console.log('Form submitted');
+        
+        // Get form and status elements
+        const submitButton = document.getElementById('submit-button');
+        const formStatus = document.getElementById('form-status');
+        
+        // Show sending state
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        formStatus.textContent = '';
+        formStatus.className = 'form-status';
+        
+        // Send email
+        console.log('Sending email via EmailJS...');
+        emailjs.sendForm('service_8lomhfn', 'template_fyodjdo', this)
+          .then(function(response) {
+            console.log('Email sent successfully!', response);
+            formStatus.textContent = 'Your message has been sent successfully!';
+            formStatus.className = 'form-status success';
+            contactForm.reset();
+            submitButton.disabled = false;
+            submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+          }, function(error) {
+            console.error('EmailJS error:', error);
+            formStatus.textContent = 'Sorry, there was an error sending your message. Please try again later.';
+            formStatus.className = 'form-status error';
+            submitButton.disabled = false;
+            submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+          });
+      });
+    } else {
+      console.error('Contact form not found');
+    }
+  } catch (error) {
+    console.error('Error setting up EmailJS:', error);
   }
 }
 
