@@ -49,8 +49,40 @@ function generateHtml(data: PageData): string {
   <title>${data.name}</title>
   <link rel="stylesheet" href="/stylesheets/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <script src="https://cdn.emailjs.com/sdk/2.6.4/email.min.js"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script src="/javascripts/main.js" defer></script>
+  <style>
+    /* Additional inline styles to ensure images work well */
+    .project-image-container {
+      max-width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .project-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    /* Ensure mobile responsiveness */
+    @media (max-width: 768px) {
+      .contact-container {
+        flex-direction: column;
+      }
+      .contact-form, .contact-info-sidebar {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="wrapper">
@@ -75,7 +107,6 @@ function generateHtml(data: PageData): string {
           <div class="home-banner">
             <img src="/images/profile.jpg" alt="${data.name}" class="profile-image">
             <h1>${data.name}</h1>
-            <p class="tagline">Computer Science Student at Carnegie Mellon University</p>
             <div class="social-icons">
               <a href="${data.socialLinks.linkedin}" target="_blank" class="social-icon">
                 <i class="fab fa-linkedin"></i>

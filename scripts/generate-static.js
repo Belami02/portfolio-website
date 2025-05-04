@@ -29,13 +29,25 @@ setTimeout(() => {
   fetch(`http://localhost:${PORT}`)
     .then(response => response.text())
     .then(html => {
+      // Fix the paths for GitHub Pages (convert absolute paths to relative)
+      const fixedHtml = html
+        .replace(/href="\//g, 'href="')  // Convert "/stylesheets/..." to "stylesheets/..."
+        .replace(/src="\//g, 'src="')    // Convert "/javascripts/..." to "javascripts/..."
+        .replace(/src="(images\/)/g, 'src="$1') // Make sure image paths are relative too
+        .replace(/href="(stylesheets\/)/g, 'href="$1') // Fix stylesheets paths
+        .replace(/src="(javascripts\/)/g, 'src="$1'); // Fix javascripts paths
+
       // Write the HTML to index.html
-      fs.writeFileSync(path.join(OUTPUT_DIR, 'index.html'), html);
-      console.log('Created index.html');
+      fs.writeFileSync(path.join(OUTPUT_DIR, 'index.html'), fixedHtml);
+      console.log('Created index.html with fixed paths');
       
       // Create a .nojekyll file (needed for GitHub Pages)
       fs.writeFileSync(path.join(OUTPUT_DIR, '.nojekyll'), '');
       console.log('Created .nojekyll file');
+
+      // Create a CNAME file for custom domain
+      fs.writeFileSync(path.join(OUTPUT_DIR, 'CNAME'), 'belamigw.com');
+      console.log('Created CNAME file for custom domain belamigw.com');
 
       // Stop the server if it's running
       if (server && server.close) {

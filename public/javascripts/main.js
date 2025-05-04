@@ -7,7 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
 // Initialize EmailJS
 function initEmailJS() {
   // Initialize with your public key
-  emailjs.init("n0IOi5QvaLBuY9ehz");
+  emailjs.init({
+    publicKey: "n0IOi5QvaLBuY9ehz",
+  });
   
   // Get the contact form and add event listener
   const contactForm = document.getElementById('contact-form');
