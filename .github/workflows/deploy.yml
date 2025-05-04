@@ -6,17 +6,23 @@ on:
   # Allow manual dispatch
   workflow_dispatch:
 
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js 🔧
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
           cache: 'npm'
       
       - name: Install dependencies 📦
@@ -26,7 +32,9 @@ jobs:
         run: npm run build:static
       
       - name: Deploy to GitHub Pages 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           folder: dist/static # The folder the action should deploy
-          branch: gh-pages # The branch the action should deploy to 
+          branch: gh-pages # The branch the action should deploy to
+          token: ${{ secrets.GITHUB_TOKEN }} # The GitHub token
+          clean: true # Automatically remove deleted files from the deploy branch 
