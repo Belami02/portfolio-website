@@ -149,7 +149,7 @@ function generateHtml(data: PageData): string {
               } else if (project.title === "Reconnect") {
                 imagePath = "/images/reconnect.png";
               } else if (project.title === "Caching Web Proxy") {
-                imagePath = "/images/private.png";
+                imagePath = "/images/private_v2.png";
               } else if (project.title === "Rubiks Cube Game") {
                 imagePath = "/images/rubiks.png";
               }
@@ -186,9 +186,9 @@ function generateHtml(data: PageData): string {
               } else if (project.title === "DevFolio") {
                 imagePath = "/images/portfolio.png";
               } else if (project.title === "Unix Shell") {
-                imagePath = "/images/private.png";
+                imagePath = "/images/private_v2.png";
               } else if (project.title === "C0VM") {
-                imagePath = "/images/private.png";
+                imagePath = "/images/private_v2.png";
               } else if (project.title === "Euro Prediction") {
                 imagePath = "/images/europrediction.png";
               }
