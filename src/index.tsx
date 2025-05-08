@@ -308,26 +308,10 @@ const pageData: PageData = {
   email: "belami@example.com",
   bio: "I'm a sophomore at Carnegie Mellon University, majoring in Computer Science with a minor in Business Administration (Finance). My main interests lie in quantitative finance and building machine learning systems that solve real-world problems.",
   socials: [
-    {
-      platform: "LinkedIn",
-      icon: "linkedin",
-      url: "https://www.linkedin.com/in/belamigw/"
-    },
-    {
-      platform: "GitHub",
-      icon: "github",
-      url: "https://github.com/belamigw"
-    },
-    {
-      platform: "X",
-      icon: "twitter",
-      url: "https://twitter.com/belamigw"
-    },
-    {
-      platform: "Instagram",
-      icon: "instagram",
-      url: "https://instagram.com/belamigw"
-    }
+    { platform: "LinkedIn", icon: "linkedin", url: "https://www.linkedin.com/in/belamigisagewarakoze/" },
+    { platform: "GitHub", icon: "github", url: "https://github.com/Belami02" },
+    { platform: "X", icon: "twitter", url: "https://twitter.com/BelGisage" },
+    { platform: "Instagram", icon: "instagram", url: "https://www.instagram.com/b___gw/" },
   ],
   skills: [
     // Programming Languages
