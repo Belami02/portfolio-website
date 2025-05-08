@@ -148,6 +148,8 @@ function generateHtml(data: PageData): string {
                 imagePath = "/images/triagerx.png";
               } else if (project.title === "Reconnect") {
                 imagePath = "/images/reconnect.png";
+              } else if (project.title === "Caching Web Proxy") {
+                imagePath = "/images/private.png";
               } else if (project.title === "Rubiks Cube Game") {
                 imagePath = "/images/rubiks.png";
               }
@@ -183,6 +185,10 @@ function generateHtml(data: PageData): string {
                 imagePath = "/images/scheduling.png";
               } else if (project.title === "DevFolio") {
                 imagePath = "/images/portfolio.png";
+              } else if (project.title === "Unix Shell") {
+                imagePath = "/images/private.png";
+              } else if (project.title === "C0VM") {
+                imagePath = "/images/private.png";
               } else if (project.title === "Euro Prediction") {
                 imagePath = "/images/europrediction.png";
               }
@@ -378,6 +384,30 @@ const pageData: PageData = {
       demoUrl: "https://youtu.be/rmGD_IhsRmc"
     },
     {
+      title: "Caching Web Proxy",
+      type: "15-213: Intro to Computer Systems",
+      featured: true,
+      description: "A concurrent web proxy server that caches web content to improve load times for repeated requests.",
+      bullets: [
+        "Developed a concurrent, thread-based server to enable anonymous client-server communication",
+        "Implemented an LRU-based cache using a doubly-linked list to associate a request URI with a server response"
+      ],
+      technologies: ["C", "Git", "Threads", "Networking", "Caching Algorithms"],
+    },
+    {
+      title: "Rubiks Cube Game",
+      type: "Game Development",
+      featured: true,
+      description: "An arcade puzzle game, inspired by the Rubiks Cube, that uses isometric projection to display the cube both in 2D and 3D. This project had 2000+ lines of code.",
+      bullets: [
+        "Developed for the \"Introduction to Programming and Computer Science\" course at Carnegie Mellon",
+        "Implemented 3D rotation algorithms and color tracking with intuitive controls for cube manipulation",
+        "Awarded \"Best Interface Award\" by Professor Eduardo Feo Flushing"
+      ],
+      technologies: ["Python", "CMU Graphics Library", "CSV", "PIL"],
+      demoUrl: "https://www.youtube.com/watch?v=6Zqn3_BwyEw"
+    },
+    {
       title: "Euro Prediction",
       type: "Machine Learning",
       featured: false,
@@ -389,6 +419,28 @@ const pageData: PageData = {
       ],
       technologies: ["Python", "Scikit-learn", "Pandas", "XGBoost", "BeautifulSoup", "Flask", "D3.js"],
       githubUrl: "https://github.com/belamigw/euro-prediction"
+    },
+    {
+      title: "Unix Shell",
+      type: "15-213: Intro to Computer Systems",
+      featured: false,
+      description: "A shell implementation that mimics the Linux shell with job control and signal handling capabilities.",
+      bullets: [
+        "Developed a shell to mimic the real Linux shell with custom signal handlers and reading and writing to files",
+        "Implemented job control to run processes in the foreground or background and switch between them"
+      ],
+      technologies: ["C", "Git", "Unix", "Process Management", "Signal Handling"],
+    },
+    {
+      title: "C0VM",
+      type: "15-122: Principles of Imperative Computation",
+      featured: false,
+      description: "A virtual machine implementation for the C0 programming language, a subset of C used for teaching.",
+      bullets: [
+        "Developed a stack-based C0 virtual machine, using the C programming language for executing C0 programs",
+        "Translated C0 expressions into instructions, simulating a compiler"
+      ],
+      technologies: ["C", "Git", "Virtual Machines", "Compilers", "Interpreters"],
     },
     {
       title: "Scheduling System",
@@ -415,19 +467,6 @@ const pageData: PageData = {
       ],
       technologies: ["React", "JavaScript", "Tailwind CSS", "GitHub API", "Framer Motion", "EmailJS"],
       demoUrl: "https://belami02.github.io/portfolio/"
-    },
-    {
-      title: "Rubiks Cube Game",
-      type: "Game Development",
-      featured: true,
-      description: "An arcade puzzle game, inspired by the Rubiks Cube, that uses isometric projection to display the cube both in 2D and 3D. This project had 2000+ lines of code.",
-      bullets: [
-        "Developed for the \"Introduction to Programming and Computer Science\" course at Carnegie Mellon",
-        "Implemented 3D rotation algorithms and color tracking with intuitive controls for cube manipulation",
-        "Awarded \"Best Interface Award\" by Professor Eduardo Feo Flushing"
-      ],
-      technologies: ["Python", "CMU Graphics Library", "CSV", "PIL"],
-      demoUrl: "https://www.youtube.com/watch?v=6Zqn3_BwyEw"
     }
   ],
   services: [], // Empty services as requested
