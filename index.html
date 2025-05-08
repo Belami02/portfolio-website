@@ -3,461 +3,499 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bel Ami Gisage Warakoze</title>
+  <title>Bel Ami Gisage Warakoze | Portfolio</title>
   <link rel="stylesheet" href="stylesheets/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script src="javascripts/main.js" defer></script>
-  <style>
-    /* Additional inline styles to ensure images work well */
-    .project-image-container {
-      max-width: 100%;
-      border-radius: 8px;
-      overflow: hidden;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-    .project-image {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .profile-image {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #fff;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-    /* Contact form improvements */
-    .contact-container {
-      display: flex;
-      gap: 30px;
-      align-items: flex-start;
-    }
-    .contact-form {
-      flex: 2;
-      background: #fff;
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    }
-    .contact-info-sidebar {
-      flex: 1;
-      background: #fff;
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    }
-    .contact-method {
-      margin-bottom: 25px;
-    }
-    /* Form status styling */
-    .form-status {
-      margin-top: 15px;
-      padding: 10px;
-      border-radius: 5px;
-      font-weight: 500;
-    }
-    .form-status.success {
-      background-color: #e7f7ed;
-      color: #28a745;
-    }
-    .form-status.error {
-      background-color: #f8d7da;
-      color: #dc3545;
-    }
-    /* Ensure mobile responsiveness */
-    @media (max-width: 768px) {
-      .contact-container {
-        flex-direction: column;
-      }
-      .contact-form, .contact-info-sidebar {
-        width: 100%;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <div class="wrapper">
     <div class="layout">
       <div class="main-content">
-        <div class="tab-navigation">
-          <button class="tab-button active" data-tab="home">
-            <i class="fas fa-home"></i> Home
-          </button>
-          <button class="tab-button" data-tab="projects">
-            <i class="fas fa-code-branch"></i> Projects
-          </button>
-          <button class="tab-button" data-tab="skills">
-            <i class="fas fa-cogs"></i> Skills
-          </button>
-          <button class="tab-button" data-tab="contact">
-            <i class="fas fa-envelope"></i> Contact
-          </button>
-        </div>
-
-        <div class="tab-content tab-home active">
-          <div class="home-banner">
+        <!-- Home Section -->
+        <section id="home" class="home-section">
+          <div class="home-content">
+            <h1>Hello, I'm Bel Ami Gisage Warakoze.</h1>
+            <p class="intro">
+              I'm a <b>rising junior at Carnegie Mellon University</b>, studying Computer Science with a minor in Business Administration (Finance), supported by a full scholarship from the Qatar Foundation. I'm deeply interested in <b>quantitative finance</b> and <b>machine learning systems</b> that solve real-world problems.
+            </p>
+            <p>
+              I hold honorary awards from international math competitions including <a href="https://www.africanmathunion.org/pamo" target="_blank">PAMO</a>, <a href="https://www.imo-official.org/participant_r.aspx?id=31836" target="_blank">IMO</a>, Euclid, and Wits, which sparked my early passion for problem-solving. Currently, I'm working with Professor Hasan Demirkoparan at CMU on applying machine learning to improve the solution of boundary value problems (BVPs).
+            </p>
+            <p>
+              Outside academics, I enjoy football, reading, and exploring new experiences that keep me grounded and curious.
+            </p>
+          </div>
+          <div class="profile-container">
             <img src="images/profile.jpg" alt="Bel Ami Gisage Warakoze" class="profile-image">
-            <h1>Bel Ami Gisage Warakoze</h1>
-            <div class="social-icons">
-              <a href="https://linkedin.com/in/belamigisagewarakoze" target="_blank" class="social-icon">
-                <i class="fab fa-linkedin"></i>
-              </a>
-              <a href="https://github.com/Belami02" target="_blank" class="social-icon">
-                <i class="fab fa-github"></i>
-              </a>
-              <a href="https://leetcode.com/bgisagew" target="_blank" class="social-icon">
-                <i class="fas fa-code"></i>
-              </a>
-              <a href="https://twitter.com/BelGIsage" target="_blank" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="https://www.instagram.com/b___gw/" target="_blank" class="social-icon">
-                <i class="fab fa-instagram"></i>
-              </a>
+            <div class="social-links">
+              
+                <a href="https://www.linkedin.com/in/belamigw/" target="_blank" class="social-link" title="LinkedIn">
+                  <i class="fa-brands fa-linkedin"></i>
+                </a>
+              
+                <a href="https://github.com/belamigw" target="_blank" class="social-link" title="GitHub">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              
+                <a href="https://twitter.com/belamigw" target="_blank" class="social-link" title="X">
+                  <i class="fa-brands fa-twitter"></i>
+                </a>
+              
+                <a href="https://instagram.com/belamigw" target="_blank" class="social-link" title="Instagram">
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+              
             </div>
-            <div class="contact-info">
-              <div class="contact-item">
-                <i class="fas fa-building"></i>
-                <span>Carnegie Mellon University</span>
+          </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+          <h2>Skills</h2>
+          
+          <!-- Skill Category Tabs -->
+          <div class="skill-tabs">
+            
+              <button class="skill-tab active" data-category="Programming Languages">Programming Languages</button>
+            
+              <button class="skill-tab " data-category="Frontend">Frontend</button>
+            
+              <button class="skill-tab " data-category="Backend">Backend</button>
+            
+              <button class="skill-tab " data-category="Data & AI">Data & AI</button>
+            
+              <button class="skill-tab " data-category="Databases">Databases</button>
+            
+              <button class="skill-tab " data-category="DevOps & Tools">DevOps & Tools</button>
+            
+          </div>
+          
+          <!-- Skill Category Content -->
+          
+            <div class="skill-content active" data-category="Programming Languages">
+              <div class="skills-grid">
+                
+                  <div class="skill-item">
+                    <span class="skill-icon"><i class="fab fa-python"></i></span>
+                    <span class="skill-name">Python</span>
+                  </div>
+                
+                  <div class="skill-item">
+                    <span class="skill-icon"><i class="fab fa-js"></i></span>
+                    <span class="skill-name">JavaScript</span>
+                  </div>
+                
+                  <div class="skill-item">
+                    <span class="skill-icon"><i class="fas fa-c"></i></span>
+                    <span class="skill-name">C/C++</span>
+                  </div>
+                
+                  <div class="skill-item">
+                    <span class="skill-icon"><i class="fab fa-r-project"></i></span>
+                    <span class="skill-name">R</span>
+                  </div>
+                
+                  <div class="skill-item">
+                    <span class="skill-icon"><i class="fab fa-ts"></i></span>
+                    <span class="skill-name">TypeScript</span>
+                  </div>
+                
+                  <div class="skill-item">
+                    <span class="skill-icon"><i class="fas fa-code"></i></span>
+                    <span class="skill-name">SML</span>
+                  </div>
+                
+              </div>
+            </div>
+          
+            <div class="skill-content " data-category="Frontend">
+              <div class="skills-grid">
+                
+                  <div class="skill-item">
+                    <span class="skill-icon"><i class="fab fa-react"></i></span>
+                    <span class="skill-name">React</span>
+                  </div>
+                
+                  <div class="skill-item">
+                    <span class="skill-icon"><i class="fab fa-react"></i></span>
+                    <span class="skill-name">React Native</span>
+                  </div>
+                
+                  <div class="skill-item">
+                    <span class="skill-icon"><i class="fab fa-html5"></i></span>
+                    <span class="skill-name">HTML/CSS</span>
+                  </div>
+                
+              </div>
+            </div>
+          
+            <div class="skill-content " data-category="Backend">
+              <div class="skills-grid">
+                
+                  <div class="skill-item">
+                    <span class="skill-icon"><i class="fab fa-node-js"></i></span>
+                    <span class="skill-name">Node.js</span>
+                  </div>
+                
+                  <div class="skill-item">
+                    <span class="skill-icon"><i class="fas fa-flask"></i></span>
+                    <span class="skill-name">Flask</span>
+                  </div>
+                
+                  <div class="skill-item">
+                    <span class="skill-icon"><i class="fas fa-bolt"></i></span>
+                    <span class="skill-name">FastAPI</span>
+                  </div>
+                
+              </div>
+            </div>
+          
+            <div class="skill-content " data-category="Data & AI">
+              <div class="skills-grid">
+                
+                  <div class="skill-item">
+                    <span class="skill-icon"><i class="fas fa-brain"></i></span>
+                    <span class="skill-name">Machine Learning</span>
+                  </div>
+                
+                  <div class="skill-item">
+                    <span class="skill-icon"><i class="fas fa-robot"></i></span>
+                    <span class="skill-name">LLMs & AI</span>
+                  </div>
+                
+                  <div class="skill-item">
+                    <span class="skill-icon"><i class="fas fa-chart-bar"></i></span>
+                    <span class="skill-name">Data Analysis</span>
+                  </div>
+                
+                  <div class="skill-item">
+                    <span class="skill-icon"><i class="fas fa-microscope"></i></span>
+                    <span class="skill-name">Research</span>
+                  </div>
+                
+              </div>
+            </div>
+          
+            <div class="skill-content " data-category="Databases">
+              <div class="skills-grid">
+                
+                  <div class="skill-item">
+                    <span class="skill-icon"><i class="fas fa-database"></i></span>
+                    <span class="skill-name">MongoDB</span>
+                  </div>
+                
+                  <div class="skill-item">
+                    <span class="skill-icon"><i class="fas fa-database"></i></span>
+                    <span class="skill-name">SQLite</span>
+                  </div>
+                
+              </div>
+            </div>
+          
+            <div class="skill-content " data-category="DevOps & Tools">
+              <div class="skills-grid">
+                
+                  <div class="skill-item">
+                    <span class="skill-icon"><i class="fab fa-microsoft"></i></span>
+                    <span class="skill-name">Azure</span>
+                  </div>
+                
+                  <div class="skill-item">
+                    <span class="skill-icon"><i class="fab fa-docker"></i></span>
+                    <span class="skill-name">Docker</span>
+                  </div>
+                
+                  <div class="skill-item">
+                    <span class="skill-icon"><i class="fab fa-git-alt"></i></span>
+                    <span class="skill-name">Git</span>
+                  </div>
+                
+                  <div class="skill-item">
+                    <span class="skill-icon"><i class="fab fa-linux"></i></span>
+                    <span class="skill-name">Linux</span>
+                  </div>
+                
+              </div>
+            </div>
+          
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+          <h2>Projects</h2>
+          <div class="project-tabs">
+            <button class="project-tab active" data-tab="featured">Featured</button>
+            <button class="project-tab" data-tab="past">Past Projects</button>
+          </div>
+          
+          <!-- Featured Projects -->
+          <div class="projects-grid featured-projects">
+            
+              <div class="project">
+                <img src="images/triagerx.png" alt="TriagerX" class="project-image">
+                <h3>TriagerX</h3>
+                <div class="project-type">AI Project</div>
+                <div class="project-description">An AI-powered issue management system developed by the Eclipse Adoptium working group that won the IBM Center for Advanced Studies Project of the Year 2024 award.</div>
+                <ul class="project-bullets">
+                  <li>Contributed to integrating multiple AI models (ChatGPT, Gemini, LLaMA-3) to improve the core TriagerX system</li><li>Built the server using FastAPI and created the Slack interface for the Adoptium team</li><li>Developed a chatbot interface that is now used by IBM Runtime Technologies and Eclipse OpenJ9 teams</li><li>Collaborated with Diyorbek Ibragimov, George Chkhaidze, Fatima Al Kharaz, and Lujain Hasna</li>
+                </ul>
+                <div class="project-tech-tags">
+                  
+                    <span class="tech-tag">Python</span>
+                  
+                    <span class="tech-tag">FastAPI</span>
+                  
+                    <span class="tech-tag">Slack API</span>
+                  
+                    <span class="tech-tag">OpenAI API</span>
+                  
+                    <span class="tech-tag">Gemini API</span>
+                  
+                    <span class="tech-tag">Hugging Face</span>
+                  
+                    <span class="tech-tag">LLaMA-3</span>
+                  
+                    <span class="tech-tag">GitHub API</span>
+                  
+                    <span class="tech-tag">Flask</span>
+                  
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/adoptium/aqa-test-tools" target="_blank" class="project-link github"><i class="fab fa-github"></i> GitHub</a>
+                  
+                </div>
+              </div>
+            
+              <div class="project">
+                <img src="images/reconnect.png" alt="Reconnect" class="project-image">
+                <h3>Reconnect</h3>
+                <div class="project-type">Hackathon Project</div>
+                <div class="project-description">A digital platform built for CMUQ's Lifelines hackathon that connects people searching for missing persons, pets, and items through community collaboration.</div>
+                <ul class="project-bullets">
+                  <li>Created a user and posts database with authentication system and post management features</li><li>Implemented geolocation integration with interactive maps showing pins of reported locations</li><li>Developed community channels/threads for each listing to enable real-time collaboration</li>
+                </ul>
+                <div class="project-tech-tags">
+                  
+                    <span class="tech-tag">Reflex</span>
+                  
+                    <span class="tech-tag">Python</span>
+                  
+                    <span class="tech-tag">SQLite</span>
+                  
+                    <span class="tech-tag">JavaScript</span>
+                  
+                    <span class="tech-tag">Geolocation API</span>
+                  
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/Belami02/LifelinesS25" target="_blank" class="project-link github"><i class="fab fa-github"></i> GitHub</a>
+                  <a href="https://youtu.be/rmGD_IhsRmc" target="_blank" class="project-link demo"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                </div>
+              </div>
+            
+              <div class="project">
+                <img src="images/rubiks.png" alt="Rubiks Cube Game" class="project-image">
+                <h3>Rubiks Cube Game</h3>
+                <div class="project-type">Game Development</div>
+                <div class="project-description">An arcade puzzle game, inspired by the Rubiks Cube, that uses isometric projection to display the cube both in 2D and 3D. This project had 2000+ lines of code.</div>
+                <ul class="project-bullets">
+                  <li>Developed for the "Introduction to Programming and Computer Science" course at Carnegie Mellon</li><li>Implemented 3D rotation algorithms and color tracking with intuitive controls for cube manipulation</li><li>Awarded "Best Interface Award" by Professor Eduardo Feo Flushing</li>
+                </ul>
+                <div class="project-tech-tags">
+                  
+                    <span class="tech-tag">Python</span>
+                  
+                    <span class="tech-tag">CMU Graphics Library</span>
+                  
+                    <span class="tech-tag">CSV</span>
+                  
+                    <span class="tech-tag">PIL</span>
+                  
+                </div>
+                <div class="project-links">
+                  
+                  <a href="https://www.youtube.com/watch?v=6Zqn3_BwyEw" target="_blank" class="project-link demo"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                </div>
+              </div>
+            
+          </div>
+          
+          <!-- Past Projects -->
+          <div class="projects-grid past-projects" style="display: none;">
+            
+              <div class="project">
+                <img src="images/europrediction.png" alt="Euro Prediction" class="project-image">
+                <h3>Euro Prediction</h3>
+                <div class="project-type">Machine Learning</div>
+                <div class="project-description">A machine learning-based prediction system for European football championship matches that analyzes historical team performance, player statistics, and match conditions.</div>
+                <ul class="project-bullets">
+                  <li>Built data collection pipelines that scrape and process match data from multiple sources</li><li>Implemented ensemble ML models combining gradient boosting and neural networks for prediction</li><li>Designed an interactive dashboard to visualize predictions and historical accuracy</li>
+                </ul>
+                <div class="project-tech-tags">
+                  
+                    <span class="tech-tag">Python</span>
+                  
+                    <span class="tech-tag">Scikit-learn</span>
+                  
+                    <span class="tech-tag">Pandas</span>
+                  
+                    <span class="tech-tag">XGBoost</span>
+                  
+                    <span class="tech-tag">BeautifulSoup</span>
+                  
+                    <span class="tech-tag">Flask</span>
+                  
+                    <span class="tech-tag">D3.js</span>
+                  
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/belamigw/euro-prediction" target="_blank" class="project-link github"><i class="fab fa-github"></i> GitHub</a>
+                  
+                </div>
+              </div>
+            
+              <div class="project">
+                <img src="images/scheduling.png" alt="Scheduling System" class="project-image">
+                <h3>Scheduling System</h3>
+                <div class="project-type">Backend Development</div>
+                <div class="project-description">A comprehensive scheduling system API built with FastAPI and MongoDB that allows users to manage bookings, courses, roles, tutor availabilities, and users.</div>
+                <ul class="project-bullets">
+                  <li>Implemented RESTful API endpoints using FastAPI for creating, reading, and deleting resources</li><li>Designed and structured MongoDB collections with Pydantic models for data validation</li><li>Set up asynchronous database operations using motor for improved performance</li>
+                </ul>
+                <div class="project-tech-tags">
+                  
+                    <span class="tech-tag">Python</span>
+                  
+                    <span class="tech-tag">FastAPI</span>
+                  
+                    <span class="tech-tag">MongoDB</span>
+                  
+                    <span class="tech-tag">Motor</span>
+                  
+                    <span class="tech-tag">Pydantic</span>
+                  
+                    <span class="tech-tag">Docker</span>
+                  
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/belamigw/scheduling-system" target="_blank" class="project-link github"><i class="fab fa-github"></i> GitHub</a>
+                  
+                </div>
+              </div>
+            
+              <div class="project">
+                <img src="images/portfolio.png" alt="DevFolio" class="project-image">
+                <h3>DevFolio</h3>
+                <div class="project-type">Web Development</div>
+                <div class="project-description">A highly customizable React-based portfolio theme specifically designed for software engineers and developers to showcase their projects and skills.</div>
+                <ul class="project-bullets">
+                  <li>Built a modular component system allowing full customization of layout, colors, and typography</li><li>Implemented dark/light mode toggle with theme persistence using local storage</li><li>Added GitHub integration to automatically fetch and display repository statistics</li>
+                </ul>
+                <div class="project-tech-tags">
+                  
+                    <span class="tech-tag">React</span>
+                  
+                    <span class="tech-tag">JavaScript</span>
+                  
+                    <span class="tech-tag">Tailwind CSS</span>
+                  
+                    <span class="tech-tag">GitHub API</span>
+                  
+                    <span class="tech-tag">Framer Motion</span>
+                  
+                    <span class="tech-tag">EmailJS</span>
+                  
+                </div>
+                <div class="project-links">
+                  
+                  <a href="https://belami02.github.io/portfolio/" target="_blank" class="project-link demo"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                </div>
+              </div>
+            
+          </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact">
+          <h2>Contact</h2>
+          <div class="contact-content">
+            <div class="contact-text">
+              <p>I'm currently open to collaboration opportunities, research projects, and discussions about quantitative finance or AI applications. Please connect with me through any of the platforms below.</p>
+              <div class="contact-social">
+                
+                  <a href="https://www.linkedin.com/in/belamigw/" target="_blank" class="contact-social-link">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                  </a>
+                
+                  <a href="https://github.com/belamigw" target="_blank" class="contact-social-link">
+                    <i class="fa-brands fa-github"></i>
+                    <span>GitHub</span>
+                  </a>
+                
+                  <a href="https://twitter.com/belamigw" target="_blank" class="contact-social-link">
+                    <i class="fa-brands fa-twitter"></i>
+                    <span>X</span>
+                  </a>
+                
+                  <a href="https://instagram.com/belamigw" target="_blank" class="contact-social-link">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span>Instagram</span>
+                  </a>
+                
               </div>
             </div>
           </div>
-
-          <div class="about-section">
-            <h2>About Me</h2>
-            <p>I'm a sophomore at Carnegie Mellon University, majoring in Computer Science with a minor in Business Administration (Finance). My main interests lie in quantitative finance and building machine learning systems that solve real-world problems.</p><p>I grew up in Rwanda, where I first fell in love with math through competitions like PAMO, IMO, Euclid Contest, and Wits. That passion opened doors—eventually earning me a full scholarship to study at CMU, thanks to the Qatar Foundation.</p><p>Outside of academics, I keep things balanced. I'm a huge football fan, always down to catch a match with friends, and I never underestimate the power of a good nap. I enjoy reading, watching movies, and trying new experiences whenever I can. These moments help me stay grounded while navigating the intense but exciting world of tech and finance.</p>
-            <div class="home-cta">
-              <button class="cta-button" onclick="document.querySelector('[data-tab=\'contact\']').click()">
-                Contact Me
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="tab-content tab-projects">
-          <section>
-            <h2>Projects</h2>
-            
-              <div class="project">
-                <h3>(I) Scheduling System</h3>
-                
-                <div class="project-image-container">
-                    <img src="images/scheduling.png" alt="Scheduling System" class="project-image">
-                  </div>
-                
-                <p class="project-description">A comprehensive scheduling system API built with FastAPI and MongoDB that allows users to manage bookings, courses, roles, tutor availabilities, and users. <i>(Note: This was a learning project to study modern API development techniques)</i></p>
-                
-                
-                  <ul class="feature-list">
-                    <li>Implemented RESTful API endpoints using FastAPI for creating, reading, and deleting resources</li><li>Designed and structured MongoDB collections with Pydantic models for data validation</li><li>Set up asynchronous database operations using motor for improved performance</li>
-                  </ul>
-                
-                
-                
-                
-                
-                
-                <div class="tech-stack">
-                  <span class="tech-tag">Python</span><span class="tech-tag">FastAPI</span><span class="tech-tag">MongoDB</span><span class="tech-tag">Motor</span><span class="tech-tag">Pydantic</span><span class="tech-tag">Docker</span>
-                </div>
-                
-                <div class="project-links">
-                  <a href="https://github.com/Belami02/scheduling-system" target="_blank">GitHub</a>
-                  
-                </div>
-              </div>
-            
-              <div class="project">
-                <h3>(II) DevFolio</h3>
-                
-                <div class="project-image-container">
-                    <img src="images/portfolio.png" alt="DevFolio" class="project-image">
-                  </div>
-                
-                <p class="project-description">A highly customizable React-based portfolio theme specifically designed for software engineers and developers to showcase their projects and skills.</p>
-                
-                
-                  <ul class="feature-list">
-                    <li>Built a modular component system allowing full customization of layout, colors, and typography</li><li>Implemented dark/light mode toggle with theme persistence using local storage</li><li>Added GitHub integration to automatically fetch and display repository statistics</li>
-                  </ul>
-                
-                
-                
-                
-                
-                
-                <div class="tech-stack">
-                  <span class="tech-tag">React</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Tailwind CSS</span><span class="tech-tag">GitHub API</span><span class="tech-tag">Framer Motion</span><span class="tech-tag">EmailJS</span>
-                </div>
-                
-                <div class="project-links">
-                  <a href="https://github.com/Belami02/portfolio" target="_blank">GitHub</a>
-                  <a href="https://belami02.github.io/portfolio/" target="_blank">Demo</a>
-                </div>
-              </div>
-            
-              <div class="project">
-                <h3>(III) Reconnect</h3>
-                
-                <div class="project-image-container">
-                    <img src="images/reconnect.png" alt="Reconnect" class="project-image">
-                  </div>
-                
-                <p class="project-description">A digital platform built for CMUQ's Lifelines hackathon that connects people searching for missing persons, pets, and items through community collaboration.</p>
-                
-                
-                  <ul class="feature-list">
-                    <li>Created a user and posts database with authentication system and post management features</li><li>Implemented geolocation integration with interactive maps showing pins of reported locations</li><li>Developed community channels/threads for each listing to enable real-time collaboration</li>
-                  </ul>
-                
-                
-                
-                
-                
-                
-                <div class="tech-stack">
-                  <span class="tech-tag">Reflex</span><span class="tech-tag">Python</span><span class="tech-tag">SQLite</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Geolocation API</span>
-                </div>
-                
-                <div class="project-links">
-                  <a href="https://github.com/Mohamed-Waiel-Shikfa/LifelinesS25" target="_blank">GitHub</a>
-                  
-                </div>
-              </div>
-            
-              <div class="project">
-                <h3>(IV) TriagerX</h3>
-                
-                <div class="project-image-container">
-                    <img src="images/triagerx.png" alt="TriagerX" class="project-image">
-                  </div>
-                
-                <p class="project-description">An AI-powered issue management system developed by the Eclipse Adoptium working group that won the IBM Center for Advanced Studies Project of the Year 2024 award. This system helps automate GitHub issue triaging by using a Slack chatbot and AI analysis for the AQA Test Tools. The system uses machine learning to look at issue content and history to suggest which team should handle it, making issue management much easier for large open-source projects.</p>
-                
-                
-                  <ul class="feature-list">
-                    <li>Contributed to integrating multiple AI models (ChatGPT, Gemini, LLaMA-3) to improve the core TriagerX system</li><li>Built the server using FastAPI and created the Slack interface for the Adoptium team</li><li>Developed a chatbot interface that is now used by IBM Runtime Technologies and Eclipse OpenJ9 teams</li><li>Collaborated with Diyorbek Ibragimov, George Chkhaidze, Fatima Al Kharaz, and Lujain Hasna.</li>
-                  </ul>
-                
-                
-                <p class="acknowledgment">This work would not have been possible without the mentorship and guidance from industry experts who provided technical direction and support throughout the project lifecycle.<br><br><b>Credits:</b> Mentored by <a href="https://www.linkedin.com/in/giasuddin/" target="_blank">Prof. Gias Uddin</a>'s team at York University, <a href="https://www.linkedin.com/in/lanxia/" target="_blank">Lan Xia</a> (Technical Lead, IBM), <a href="https://www.linkedin.com/in/longyuzhang/" target="_blank">Longyu Zhang</a> (IBM), <a href="https://www.linkedin.com/in/shelley-lambert-6120961/" target="_blank">Shelley Lambert</a> (Red Hat), <a href="https://www.linkedin.com/in/stephenrwalli/" target="_blank">Stephen Walli</a> (Microsoft), and <a href="https://www.linkedin.com/in/eduardo-feo/" target="_blank">Prof. Eduardo Feo Flushing</a> (CMUQ).</p>
-                
-                <div class="project-note"><i>Learn more about this project in the <a href="https://lassonde.yorku.ca/ibm-recognizes-lassonde-professor-for-project-of-the-year-achievements" target="_blank">IBM TechXchange announcement</a>.</i></div>
-                
-                <div class="tech-stack">
-                  <span class="tech-tag">Python</span><span class="tech-tag">FastAPI</span><span class="tech-tag">Slack API</span><span class="tech-tag">OpenAI API</span><span class="tech-tag">Gemini API</span><span class="tech-tag">Hugging Face</span><span class="tech-tag">LLaMA-3</span><span class="tech-tag">GitHub API</span><span class="tech-tag">Flask</span>
-                </div>
-                
-                <div class="project-links">
-                  <a href="https://github.com/adoptium/aqa-test-tools" target="_blank">GitHub</a>
-                  
-                </div>
-              </div>
-            
-              <div class="project">
-                <h3>(V) Euro Prediction</h3>
-                
-                <div class="project-image-container">
-                    <img src="images/europrediction.png" alt="Euro Prediction" class="project-image">
-                  </div>
-                
-                <p class="project-description">A machine learning-based prediction system for European football championship matches that analyzes historical team performance, player statistics, and match conditions.</p>
-                
-                
-                  <ul class="feature-list">
-                    <li>Built data collection pipelines that scrape and process match data from multiple sources</li><li>Implemented ensemble ML models combining gradient boosting and neural networks for prediction</li><li>Designed an interactive dashboard to visualize predictions and historical accuracy</li>
-                  </ul>
-                
-                
-                
-                
-                
-                
-                <div class="tech-stack">
-                  <span class="tech-tag">Python</span><span class="tech-tag">Scikit-learn</span><span class="tech-tag">Pandas</span><span class="tech-tag">XGBoost</span><span class="tech-tag">BeautifulSoup</span><span class="tech-tag">Flask</span><span class="tech-tag">D3.js</span>
-                </div>
-                
-                <div class="project-links">
-                  <a href="https://github.com/Belami02/euro-prediction" target="_blank">GitHub</a>
-                  
-                </div>
-              </div>
-            
-              <div class="project">
-                <h3>(VI) Rubiks Cube Game</h3>
-                
-                <div class="project-image-container">
-                    <img src="images/rubiks.png" alt="Rubiks Cube Game" class="project-image">
-                  </div>
-                
-                <p class="project-description">This is an arcade puzzle game, inspired by the Rubiks Cube, that uses isometric projection to display the cube both in 2D and 3D. This project had 2000+ lines of code.</p>
-                
-                
-                  <ul class="feature-list">
-                    <li>Developed for the "Introduction to Programming and Computer Science" course at Carnegie Mellon</li><li>Implemented 3D rotation algorithms and color tracking with intuitive controls for cube manipulation</li><li>Awarded "Best Interface Award" by Professor Eduardo Feo Flushing</li>
-                  </ul>
-                
-                
-                
-                
-                
-                
-                <div class="tech-stack">
-                  <span class="tech-tag">Python</span><span class="tech-tag">CMU Graphics Library</span><span class="tech-tag">CSV</span><span class="tech-tag">PIL</span>
-                </div>
-                
-                <div class="project-links">
-                  <a href="https://github.com/Belami02/rubiks-cube-game-CMU-15112" target="_blank">GitHub</a>
-                  
-                </div>
-              </div>
-            
-          </section>
-        </div>
-
-        <div class="tab-content tab-skills">
-          <section class="skills-section">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-              
-                <div class="skill-item">
-                  <i class="fab fa-python skill-icon"></i>
-                  <span class="skill-name">Python</span>
-                </div>
-              
-                <div class="skill-item">
-                  <i class="fab fa-js skill-icon"></i>
-                  <span class="skill-name">JavaScript</span>
-                </div>
-              
-                <div class="skill-item">
-                  <i class="fab fa-react skill-icon"></i>
-                  <span class="skill-name">React</span>
-                </div>
-              
-                <div class="skill-item">
-                  <i class="fab fa-node-js skill-icon"></i>
-                  <span class="skill-name">Node.js</span>
-                </div>
-              
-                <div class="skill-item">
-                  <i class="fab fa-js-square skill-icon"></i>
-                  <span class="skill-name">TypeScript</span>
-                </div>
-              
-                <div class="skill-item">
-                  <i class="fas fa-brain skill-icon"></i>
-                  <span class="skill-name">Machine Learning</span>
-                </div>
-              
-                <div class="skill-item">
-                  <i class="fas fa-chart-bar skill-icon"></i>
-                  <span class="skill-name">Data Analysis</span>
-                </div>
-              
-                <div class="skill-item">
-                  <i class="fas fa-database skill-icon"></i>
-                  <span class="skill-name">MongoDB</span>
-                </div>
-              
-                <div class="skill-item">
-                  <i class="fas fa-bolt skill-icon"></i>
-                  <span class="skill-name">FastAPI</span>
-                </div>
-              
-                <div class="skill-item">
-                  <i class="fab fa-docker skill-icon"></i>
-                  <span class="skill-name">Docker</span>
-                </div>
-              
-                <div class="skill-item">
-                  <i class="fab fa-git-alt skill-icon"></i>
-                  <span class="skill-name">Git</span>
-                </div>
-              
-                <div class="skill-item">
-                  <i class="fas fa-cloud skill-icon"></i>
-                  <span class="skill-name">Cloud</span>
-                </div>
-              
-            </div>
-          </section>
-        </div>
-
-        <div class="tab-content tab-contact">
-          <section class="contact-section">
-            <h2>Get In Touch</h2>
-            <p class="contact-intro">Have a question or want to work together? Fill out the form below and I'll get back to you as soon as possible.</p>
-            
-            <div class="contact-container">
-              <form id="contact-form" class="contact-form" onsubmit="submitForm(event)">
-                <div class="contact-form-header">
-                  <h3>Send Me a Message</h3>
-                  <p>I'll respond to your message as soon as possible</p>
-                </div>
-                
-                <div class="form-group-row">
-                  <div class="form-group has-icon">
-                    <label for="name">Full Name</label>
-                    <i class="fas fa-user"></i>
-                    <input type="text" id="name" name="name" placeholder="Your full name" required>
-                  </div>
-                  
-                  <div class="form-group has-icon">
-                    <label for="email">Email Address</label>
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" id="email" name="email" placeholder="Your email address" required>
-                  </div>
-                </div>
-                
-                <div class="form-group has-icon">
-                  <label for="subject">Subject</label>
-                  <i class="fas fa-tag"></i>
-                  <input type="text" id="subject" name="subject" placeholder="What is this regarding?" required>
-                </div>
-                
-                <div class="form-group has-icon">
-                  <label for="message">Your Message</label>
-                  <textarea id="message" name="message" rows="5" placeholder="Tell me about your project, question, or job opportunity..." required></textarea>
-                </div>
-                
-                <button type="submit" id="submit-button" class="submit-button">
-                  <i class="fas fa-paper-plane"></i> Send Message
-                </button>
-                
-                <div id="form-status" class="form-status"></div>
-              </form>
-              
-              <div class="contact-info-sidebar">
-                <div class="contact-method">
-                  <div class="icon-container">
-                    <i class="fas fa-globe"></i>
-                  </div>
-                  <div class="contact-details">
-                    <h3>Social & Web</h3>
-                    <p>Connect with me on<br><a href="https://linkedin.com/in/belamigisagewarakoze" target="_blank">LinkedIn</a> or <a href="https://github.com/Belami02" target="_blank">GitHub</a></p>
-                  </div>
-                </div>
-                
-                <div class="contact-method">
-                  <div class="icon-container">
-                    <i class="fas fa-clock"></i>
-                  </div>
-                  <div class="contact-details">
-                    <h3>Response Time</h3>
-                    <p>I typically respond within<br>24-48 business hours</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
+        </section>
       </div>
     </div>
   </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Project tabs functionality
+      const projectTabButtons = document.querySelectorAll('.project-tab');
+      const featuredProjects = document.querySelector('.featured-projects');
+      const pastProjects = document.querySelector('.past-projects');
+      
+      projectTabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Remove active class from all buttons
+          projectTabButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          // Show/hide appropriate projects
+          if (this.getAttribute('data-tab') === 'featured') {
+            featuredProjects.style.display = 'flex';
+            pastProjects.style.display = 'none';
+          } else {
+            featuredProjects.style.display = 'none';
+            pastProjects.style.display = 'flex';
+          }
+        });
+      });
+      
+      // Skills tabs functionality
+      const skillTabButtons = document.querySelectorAll('.skill-tab');
+      const skillContents = document.querySelectorAll('.skill-content');
+      
+      skillTabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const category = this.getAttribute('data-category');
+          
+          // Remove active class from all buttons and contents
+          skillTabButtons.forEach(btn => btn.classList.remove('active'));
+          skillContents.forEach(content => content.classList.remove('active'));
+          
+          // Add active class to clicked button and corresponding content
+          this.classList.add('active');
+          document.querySelector('.skill-content[data-category="' + category + '"]').classList.add('active');
+        });
+      });
+    });
+  </script>
 </body>
 </html>
